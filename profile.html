@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Grocery Mart</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header id="main-header"></header>
+  <div class="container">
+    <aside class="sidebar" id="sidebar-menu"></aside>
+    <main>
+      <h2>Your Profile</h2>
+      <div id="profile-info"></div>
+    </main>
+  </div>
+  <script src="js/layout.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) window.location.href = "login.html";
+    document.getElementById("profile-info").innerHTML = `
+      <p><strong>Customer ID:</strong> ${user.id}</p>
+      <p><strong>Name:</strong> ${user.name}</p>
+      <p><strong>Email:</strong> ${user.email}</p>
+      <p><strong>Mobile:</strong> ${user.mobile}</p>
+      <p><strong>Address:</strong> ${user.address}</p>
+    `;
+  </script>
+</body>
+</html>
+

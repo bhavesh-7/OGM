@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orders - Grocery Mart</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header id="main-header"></header>
+  <div class="container">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main>
+      <h2>Your Orders</h2>
+      <div id="orders-container"></div>
+    </main>
+  </div>
+  <script src="js/layout.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) location.href = "login.html";
+
+    const ordersContainer = document.getElementById("orders-container");
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const myOrders = orders.filter(order => order.userId === user.id);
+
+    if (myOrders.length === 0) {
+      ordersContainer.innerHTML = "<p>No orders found.</p>";
+    } else {
+      ordersContainer.innerHTML = myOrders.map(order => `
+        <div class="order-box">
+          <p><strong>Order ID:</strong> ${order.id}</p>
+          <p><strong>Date:</strong> ${order.date}</p>
+          <ul>
+            ${order.items.map(item => `<li>${item.name} - Qty: ${item.qty}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

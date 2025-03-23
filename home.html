@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - Grocery Mart</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header id="main-header"></header>
+  <div class="container">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main>
+      <h2>Welcome, <span id="userName"></span></h2>
+      <section id="offers">🔥 Exclusive Deals for You!</section>
+      <section id="products-container" class="product-grid"></section>
+    </main>
+  </div>
+  <script src="js/layout.js"></script>
+  <script src="js/products.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) location.href = "login.html";
+    document.getElementById("userName").innerText = user.name;
+  </script>
+</body>
+</html>
