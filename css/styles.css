@@ -44,6 +44,49 @@ button {
   border-radius: 4px;
 }
 
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px; /* Moves error message closer to the input field */
+  margin-bottom: 5px; /* Adds some spacing before the next field */
+  display: block; /* Ensures the error message appears as a separate line */
+}
+
+/* Modal style */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  color: red;
+  font-size: 20px;
+  float: right;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: darkred;
+}
+/* Modal style end */
+
 .container {
   display: flex;
   gap: 20px;
