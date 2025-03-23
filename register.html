@@ -10,17 +10,35 @@
   <main class="auth-container">
     <h2>Register</h2>
     <form id="registerForm">
-      <input type="text" id="name" placeholder="Full Name" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <input type="text" id="mobile" placeholder="Mobile Number" required />
-      <input type="text" id="address" placeholder="Address" required />
+      <input type="text" id="name" placeholder="Full Name" />
+      <span class="error" id="nameError"></span>
+
+      <input type="text" id="email" placeholder="Email" />
+      <span class="error" id="emailError"></span>
+
+      <input type="text" id="mobile" placeholder="Mobile Number" />
+      <span class="error" id="contactError"></span>
+
+      <input type="text" id="address" placeholder="Address" />
+      <span class="error" id="addressError"></span>
+
       <div class="password-wrapper">
-        <input type="password" id="password" placeholder="Password" required />
+        <input type="password" id="password" placeholder="Password" />
+        <span class="error" id="passwordError"></span>
         <button type="button" class="toggle-password" data-target="password">👁️</button>
       </div>
       <small>Password must be 8+ chars, with uppercase, number & symbol.</small>
-      <button type="submit">Register</button>
+      <button style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 16px;" type="submit">Register</button>
     </form>
+    <div id="popupModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 style="color: green;">Customer Registration Successful</h3>
+        <p><strong>Customer ID:</strong> <span id="modalCustomerId"></span></p>
+        <p><strong>Name:</strong> <span id="modalCustomerName"></span></p>
+        <p><strong>Email:</strong> <span id="modalCustomerEmail"></span></p>
+    </div>
+    </div>
     <p>Already have an account? <a href="login.html">Login</a></p>
   </main>
   <script src="js/auth.js"></script>
